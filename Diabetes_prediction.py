@@ -42,7 +42,7 @@ st.write('Your Body Mass Index is ' + str(user_bmi))
 age = st.number_input(label= 'Enter your Age')       
 
 #load the trained ml model
-loaded_model = open('diabetes_alg.pkl', 'rb')
+loaded_model = open('model.pkl', 'rb')
 diabetes_alg = pickle.load(loaded_model)
 
 #create a dataset for the user input
