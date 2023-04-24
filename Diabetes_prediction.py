@@ -27,22 +27,22 @@ st.write('Most people with diabetes need to check their blood sugar (glucose) le
                         in predicting the occurance of diabetes')
 st.write('For more information use this link for a better understanding of your \
         glucose level ' + web_md)
-Glucose = st.number_input(label= 'Enter your Glucose level')
+Glucose = st.number_input(label= 'Enter your Glucose level', min_value=0, step=1)
 #calculating Blood pressure
-BloodPressure = st.number_input(label= 'Enter your Blood Pressure')
+BloodPressure = st.number_input(label= 'Enter your Blood Pressure', min_value=0)
 #calculating Insulin level
-Insulin = st.number_input(label= 'Enter your Insulin Level')
+Insulin = st.number_input(label= 'Enter your Insulin Level', min_value=0)
 #calculating bmi
-weight = st.number_input(label= 'Enter your Weight in Kg', value= 10)
-height_cm = st.number_input(label= 'enter your height in cm', value= 50)
+weight = st.number_input(label= 'Enter your Weight in Kg', value= 10, min_value=1)
+height_cm = st.number_input(label= 'enter your height in cm', value= 50, min_value=1)
 height = height_cm / 100
 bmi = weight / height**2
 user_bmi = round(bmi, 2)
 st.write('Your Body Mass Index is ' + str(user_bmi))
-age = st.number_input(label= 'Enter your Age')       
+age = st.number_input(label= 'Enter your Age', min_value=1)       
 
 #load the trained ml model
-loaded_model = open('model.pkl', 'rb')
+loaded_model = open('diabetes_alg.pkl', 'rb')
 diabetes_alg = pickle.load(loaded_model)
 
 #create a dataset for the user input
